@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Question>
+
+    <form method="post" action="AdminAllQuestions">
+        <label>Search Text</label>
+        <input type="text" id="SearchKey" name="SearchKey">
+        <input type="submit" value="Search">
+    </form>
+    <br>
+    <br>
+    <ol>
+@foreach(Question question in Model) {
+    <li>
+        
+        <a asp-action="ViewQuestion" asp-route-QuestionId=@question.Id class="link"><h4>@question.Title</h4> <p>"Answer This Question"</p></a>
+        <div class="list-post">
+            <div class="list-post-top"><p>Post Score: [@question.Score]</p> <p>Comments: @question.CommentCount</p></div>
+            <div class="list-post-bottom"><p>By @question.UserName</p> <p>User Rep: [@question.UserReputation]</p> </div>
+        </div>
+    </li>
+        <form method="post" action="DeleteQuestion">
+        <input type="hidden" id="QuestionId" name="QuestionId" value=@question.Id>
+        <input type="submit" value="Delete">
+        </form>
+    <hr>
+    
+}
+    </ol>

@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<h1>Post Question</h1>
+<form method="post" action="PostQuestion">
+    <div class="post-question">
+        <label for="Title">Title:</label>
+        <br />
+        <input type="text" id="Title" name="Title">
+        <br />
+        <label for="richtextarea">Content:</label>
+        <textarea class="richtextarea" name="Content">
+        </textarea>
+    </div>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <script>$(document).ready(function() {
+  $('.richtextarea').summernote();
+});</script>
+}

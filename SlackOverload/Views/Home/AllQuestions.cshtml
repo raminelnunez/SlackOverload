@@ -1,0 +1,62 @@
+﻿@using SlackOverload.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Question>
+
+
+@{
+
+    var SelectedPage = (int)ViewData["SelectedPage"];
+    var SelectedQuestionsPerPage = (int)ViewData["SelectedQuestionsPerPage"];
+    var SelectedSortBy = (string)ViewData["SelectedSortBy"];
+    var PagesCount = (int)ViewData["PagesCount"];
+    var QuestionsCount = (int)ViewData["QuestionsCount"];
+}
+<ol>
+@foreach(Question question in Model) {
+    <li>
+        
+        <a asp-action="ViewQuestion" asp-route-QuestionId=@question.Id class="link"><h4>@question.Title</h4> <p>"Answer This Question"</p></a>
+        <div class="list-post">
+            <div class="list-post-top"><p>Post Score: [@question.Score]</p> <p>Comments: @question.CommentCount</p></div>
+            <div class="list-post-bottom"><p>By @question.UserName</p> <p>User Rep: [@question.UserReputation]</p> </div>
+        </div>
+    </li>
+    <hr>
+}
+</ol>
+
+<form method="get" action="AllQuestions">
+    <input type="hidden" id="SelectedQuestionsPerPage" name="SelectedQuestionsPerPage" value=@SelectedQuestionsPerPage>
+    <input type="hidden" id="SelectedSortBy" name="SelectedSortBy" value=@SelectedSortBy>
+    @if (SelectedPage > 0)
+    {
+        <button id="SelectedPage" name="SelectedPage" type="submit" value=@(SelectedPage-1)>Previous Page</button>
+    }
+    @if (SelectedPage < PagesCount)
+    {
+        <button id="SelectedPage" name="SelectedPage" type="submit" value=@(SelectedPage+1)>Next Page</button>
+    }
+</form>
+
+<form method="get" action="AllQuestions">
+    <input type="hidden" id="SelectedQuestionsPerPage" name="SelectedQuestionsPerPage" value=@SelectedQuestionsPerPage>
+    <button id="SelectedSortBy" name="SelectedSortBy" type="submit" value="MostRecent" >By Most Recent</button>
+    <button id="SelectedSortBy" name="SelectedSortBy" type="submit" value="MostAnswers" >By Most Answers</button>
+</form>
+
+<form method="get" action="AllQuestions">
+        <label for="SelectedQuestionsPerPage">Questions Per Page:</label>
+        <select id="SelectedQuestionsPerPage" name="SelectedQuestionsPerPage">
+        @for(int i = 1; i < QuestionsCount; i++ )
+        {
+            <option value=@i>@i</option>
+        }
+        </select>
+        <input type="submit" value="Submit">
+</form>
+
+<a asp-action=PostQuestion class="link">Post A New Question</a>

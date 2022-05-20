@@ -1,0 +1,131 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 10pt;
+  background: #ffe url(/image/fade.png) top center repeat-x !important;
+  color: maroon;
+}
+
+.correct-answer {
+  background-color: rgb(133, 204, 26);
+  border: 4px solid rgb(69, 172, 69);
+  padding: 0.2rem;
+}
+
+.link {
+ text-decoration: none;
+ color:brown;
+}
+
+.link :hover {
+  color:cadetblue;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+
+}
+
+.post > * {
+  margin: 0.2rem;
+  padding: 1rem;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 10pt;
+  text-shadow: 0.1px 0.1px black;
+  border: 1px solid black;
+  border-radius: 1%;
+}
+
+.post-user-info {
+  background-color: rgb(228, 210, 184);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: maroon;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.post-content {
+  background-color: #f0e0d6;
+  color: maroon;
+  width: 67%;
+}
+
+.post-score {
+  border: none;
+}
+
+.post-score-display {
+  margin: 0.2rem;
+  color: brown;
+  background-color: wheat;
+  font-size: larger;
+  font-weight: 700;
+  border: 4px solid rgb(165, 97, 42);
+}
+
+.post-score-vote button {
+  margin: 0.2rem;
+}
+
+.comment {
+  margin: 1rem;
+  border-radius: 1%;
+  background-color: rgb(219, 196, 166);
+  padding: 0.5rem;
+}
+
+.reply {
+  margin-left: 4rem;
+  margin: 1rem;
+  border: 4px solid maroon;
+  border-radius: 1%;
+}
+
+
+
+button, input {
+  background-color: rgb(224, 211, 194);
+}
+.richtextarea {
+  border: 1px solid black !important;
+  background-color: antiquewhite !important;
+}
+
+
+.list-post {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid maroon;
+  background-color: #f0e0d6;
+  font-weight: 700;
+  padding: 0.5rem;
+}
+
+.list-post > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
