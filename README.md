@@ -1,6 +1,4 @@
 # SlackOverload
-
-# SlackOverload
 * A StackOverflow clone using an ASP.NET MVC framework with an SQL Database complete with Seed Data 
 * Completed solo for the final project of my Adv Database and ORM Concepts (Backend) SD-330 course at MITT 
 
